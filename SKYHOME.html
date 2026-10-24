@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio | SkyHome</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Enlace al archivo CSS externo -->
+    <link rel="stylesheet" href="/css/sky home.css">
+
+    <!-- Google Identity Services -->
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+</head>
+
+<body>
+
+    <!-- ==============================
+         NAVBAR ELEGANTE
+    ============================== -->
+    <header class="navbar">
+        <a href="/js/inicio.html" class="logo">
+            <img src="/js/imagenes/logoskyhome.png" alt="Logo SkyHome" class="logo-img">
+            <span class="logo-texto">Sky<span class="highlight">Home</span></span>
+        </a>
+
+        <nav class="nav-menu">
+            <a href="/js/SKYHOME.html" class="activo">Inicio</a>
+            <a href="/js/apartamentos.html">Apartamentos</a>
+            <a href="/js/beneficios.html">Beneficios</a>
+            <a href="/js/mapa.html">Mapa</a>
+            <a href="/js/informacion.html">Información</a>
+            <a href="/js/reservas.html">Reservas</a>
+            <a href="/js/visitas.html">Visitas</a>
+        </nav>
+
+        <div class="perfil">
+            <img id="imagenPerfil" class="perfil-img" src="/js/imagenes/melody5.webp" alt="Foto de perfil" onclick="abrirModalAuth()">
+        </div>
+    </header>
+
+    <!-- ==============================
+         HERO MINIMALISTA Y ELEGANTE
+    ============================== -->
+    <main>
+        <section class="hero">
+            <div class="hero-overlay"></div>
+            
+            <div class="hero-contenido">
+                <span class="badge-bienvenida">SkyHome Real Estate</span>
+                <h1>El arte de encontrar <br><span class="texto-gradiente">tu espacio ideal</span></h1>
+                <p>Descubre apartamentos exclusivos diseñados para brindar comodidad, lujo y tranquilidad.</p>
+
+                <!-- BUSCADOR MINIMALISTA (SIN BOTONES REDUNDANTES) -->
+                <div class="buscador-minimal">
+                    <input type="text" class="input-buscar-clean" placeholder="¿Qué ciudad o zona estás buscando?">
+                    <button class="btn-buscar-icon" aria-label="Buscar">🔍</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN DE ACCESOS RÁPIDOS EN CRISTAL (GLASSMORPHISM) -->
+        <section class="tarjetas-elegantes">
+            <a href="/js/apartamentos.html" class="glass-card">
+                <div class="glass-icon">🏢</div>
+                <div class="glass-text">
+                    <h3>Explorar Propiedades</h3>
+                    <p>Catálogo exclusivo de apartamentos</p>
+                </div>
+            </a>
+
+            <a href="/js/mapa.html" class="glass-card">
+                <div class="glass-icon">📍</div>
+                <div class="glass-text">
+                    <h3>Ubicación & Zonas</h3>
+                    <p>Encuentra espacios cerca de ti</p>
+                </div>
+            </a>
+
+            <a href="/js/beneficios.html" class="glass-card">
+                <div class="glass-icon">✨</div>
+                <div class="glass-text">
+                    <h3>Experiencia SkyHome</h3>
+                    <p>Conoce nuestros servicios VIP</p>
+                </div>
+            </a>
+        </section>
+    </main>
+
+    <!-- ==============================
+         MODAL CREAR CUENTA / LOGIN
+    ============================== -->
+    <div id="modalAuth" class="modal">
+        <div class="modal-contenido">
+            <span class="cerrar-modal" onclick="cerrarModalAuth()">&times;</span>
+
+            <h2>Crea tu cuenta en SkyHome</h2>
+            <p class="modal-subtitulo">Regístrate para encontrar tu apartamento ideal.</p>
+
+            <img id="fotoRegistro" class="foto-registro" src="/js/imagenes/melody5.webp" alt="Foto de perfil">
+            <br>
+
+            <label for="subirFoto" class="boton-foto">🖼️ Elegir foto</label>
+            <input type="file" id="subirFoto" accept="image/*" style="display:none;" onchange="cambiarFoto(event)">
+
+            <input type="text" id="nombreUsuario" class="campo-registro" placeholder="Nombre completo">
+            <input type="email" id="correoUsuario" class="campo-registro" placeholder="Correo electrónico">
+            <input type="password" id="passwordUsuario" class="campo-registro" placeholder="Crear contraseña">
+
+            <button class="boton-crear" onclick="crearCuenta()">Crear cuenta</button>
+
+            <div class="separador">O continúa con</div>
+
+            <!-- GOOGLE LOGIN -->
+            <div id="g_id_onload" 
+                 data-client_id="TU_CLIENT_ID_DE_GOOGLE.apps.googleusercontent.com" 
+                 data-callback="handleCredentialResponse" 
+                 data-auto_prompt="false">
+            </div>
+
+            <div class="g_id_signin" 
+                 data-type="standard" 
+                 data-size="large" 
+                 data-theme="outline" 
+                 data-text="continue_with" 
+                 data-shape="rectangular" 
+                 data-logo_alignment="left">
+            </div>
+
+            <!-- FACEBOOK LOGIN -->
+            <button class="boton-facebook" onclick="registrarFacebook()">🔷 Continuar con Facebook</button>
+
+            <p class="terminos">
+                Al crear una cuenta aceptas los términos y condiciones de SkyHome.
+            </p>
+        </div>
+    </div>
+
+    <!-- ==============================
+         JAVASCRIPT
+    ============================== -->
+    <script>
+        function abrirModalAuth() {
+            document.getElementById("modalAuth").style.display = "flex";
+        }
+
+        function cerrarModalAuth() {
+            document.getElementById("modalAuth").style.display = "none";
+        }
+
+        function cambiarFoto(event) {
+            const archivo = event.target.files[0];
+            if (!archivo) return;
+
+            const lector = new FileReader();
+            lector.onload = function(e) {
+                document.getElementById("fotoRegistro").src = e.target.result;
+                document.getElementById("imagenPerfil").src = e.target.result;
+            };
+            lector.readAsDataURL(archivo);
+        }
+
+        function crearCuenta() {
+            const nombre = document.getElementById("nombreUsuario").value.trim();
+            const correo = document.getElementById("correoUsuario").value.trim();
+            const password = document.getElementById("passwordUsuario").value.trim();
+
+            if (!nombre || !correo || !password) {
+                alert("Por favor completa todos los campos.");
+                return;
+            }
+
+            alert("¡Cuenta creada correctamente, " + nombre + "! Bienvenido a SkyHome.");
+            cerrarModalAuth();
+        }
+
+        function handleCredentialResponse(response) {
+            console.log("Token ID de Google JWT:", response.credential);
+            const responsePayload = parseJwt(response.credential);
+
+            if (responsePayload.name) document.getElementById("nombreUsuario").value = responsePayload.name;
+            if (responsePayload.email) document.getElementById("correoUsuario").value = responsePayload.email;
+            if (responsePayload.picture) {
+                document.getElementById("imagenPerfil").src = responsePayload.picture;
+                document.getElementById("fotoRegistro").src = responsePayload.picture;
+            }
+
+            alert("¡Bienvenido a SkyHome, " + responsePayload.name + "!");
+            cerrarModalAuth();
+        }
+
+        function registrarFacebook() {
+            alert("Para activar el registro con Facebook debes configurar una aplicación de Facebook Developers.");
+        }
+
+        function parseJwt(token) {
+            const base64Url = token.split('.')[1];
+            const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+            const jsonPayload = decodeURIComponent(
+                window.atob(base64)
+                .split('')
+                .map(function(c) {
+                    return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+                })
+                .join('')
+            );
+            return JSON.parse(jsonPayload);
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById("modalAuth");
+            if (event.target === modal) {
+                cerrarModalAuth();
+            }
+        };
+    </script>
+</body>
+
+</html>

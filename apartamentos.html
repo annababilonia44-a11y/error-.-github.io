@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apartamentos | SkyHome</title>
+    <link rel="stylesheet" href="/css/apartamentos.css">
+</head>
+
+<body>
+
+<header class="header">
+    <div class="logo">
+        Sky<span>Home</span>
+    </div>
+
+    <nav>
+        <a href="SKYHOME.html">Inicio</a>
+        <a href="apartamentos.html" class="activo">Apartamentos</a>
+        <a href="/js/mapa.html">Mapa</a>
+    </nav>
+</header>
+
+
+<section class="hero">
+
+    <div class="hero-contenido">
+
+        <span class="etiqueta">SKYHOME</span>
+
+        <h1>Encuentra tu apartamento ideal</h1>
+
+        <p>
+            Explora nuestros apartamentos y conoce cada espacio
+            antes de elegir tu nuevo hogar.
+        </p>
+
+        <div class="buscador">
+
+            <input
+                type="text"
+                id="buscador"
+                placeholder="Busca por nombre o ubicación..."
+            >
+
+            <button onclick="buscarApartamentos()">
+                🔍 Buscar
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="filtros">
+
+    <select id="filtroTipo" onchange="filtrarApartamentos()">
+
+        <option value="todos">
+            Todos los apartamentos
+        </option>
+
+        <option value="familiar">
+            Familiares
+        </option>
+
+        <option value="parejas">
+            Para dos personas
+        </option>
+
+        <option value="apartaestudio">
+            Apartaestudios
+        </option>
+
+    </select>
+
+
+    <select id="filtroHabitaciones" onchange="filtrarApartamentos()">
+
+        <option value="todos">
+            Habitaciones
+        </option>
+
+        <option value="1">
+            1 habitación
+        </option>
+
+        <option value="2">
+            2 habitaciones
+        </option>
+
+        <option value="3">
+            3 habitaciones
+        </option>
+
+        <option value="4">
+            4 habitaciones
+        </option>
+
+    </select>
+
+
+    <select id="ordenar" onchange="ordenarApartamentos()">
+
+        <option value="default">
+            Ordenar por
+        </option>
+
+        <option value="menor">
+            Precio menor
+        </option>
+
+        <option value="mayor">
+            Precio mayor
+        </option>
+
+    </select>
+
+</section>
+
+
+<main class="contenedor">
+
+
+    <!-- APARTAMENTOS FAMILIARES -->
+
+    <section class="categoria">
+
+        <div class="titulo-categoria">
+
+            <div>
+                <span>PARA FAMILIAS</span>
+                <h2>Apartamentos familiares</h2>
+            </div>
+
+            <p>
+                Espacios amplios para compartir en familia.
+            </p>
+
+        </div>
+
+        <div
+            id="grid-familiar"
+            class="grid-apartamentos">
+        </div>
+
+    </section>
+
+
+
+    <!-- APARTAMENTOS PARA PAREJAS -->
+
+    <section class="categoria">
+
+        <div class="titulo-categoria">
+
+            <div>
+                <span>PARA DOS PERSONAS</span>
+                <h2>Apartamentos para parejas</h2>
+            </div>
+
+            <p>
+                Espacios cómodos y acogedores.
+            </p>
+
+        </div>
+
+        <div
+            id="grid-parejas"
+            class="grid-apartamentos">
+        </div>
+
+    </section>
+
+
+
+    <!-- APARTAESTUDIOS -->
+
+    <section class="categoria">
+
+        <div class="titulo-categoria">
+
+            <div>
+                <span>PRÁCTICOS Y MODERNOS</span>
+                <h2>Apartaestudios</h2>
+            </div>
+
+            <p>
+                Una opción práctica para vivir cómodamente.
+            </p>
+
+        </div>
+
+        <div
+            id="grid-apartaestudios"
+            class="grid-apartamentos">
+        </div>
+
+    </section>
+
+</main>
+
+
+
+<!-- MODAL DE GALERÍA -->
+
+<div id="modalGaleria" class="modal">
+
+    <div class="modal-contenido">
+
+        <button
+            class="cerrar"
+            onclick="cerrarGaleria()">
+            ×
+        </button>
+
+
+        <div class="galeria-principal">
+
+            <button
+                class="flecha izquierda"
+                onclick="fotoAnterior()">
+                ‹
+            </button>
+
+
+            <img
+                id="imagenPrincipal"
+                src=""
+                alt="Foto del apartamento"
+            >
+
+
+            <button
+                class="flecha derecha"
+                onclick="fotoSiguiente()">
+                ›
+            </button>
+
+        </div>
+
+
+        <h3 id="nombreFoto"></h3>
+
+
+        <div
+            id="miniaturas"
+            class="miniaturas">
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- MODAL DE DETALLES -->
+
+<div id="modalDetalles" class="modal">
+
+    <div class="modal-detalles">
+
+        <button
+            class="cerrar cerrar-detalles"
+            onclick="cerrarDetalles()">
+            ×
+        </button>
+
+
+        <div id="contenidoDetalles"></div>
+
+    </div>
+
+</div>
+
+
+
+<footer>
+
+    <div class="footer-logo">
+        Sky<span>Home</span>
+    </div>
+
+    <p>
+        Encuentra el espacio perfecto para comenzar una nueva etapa.
+    </p>
+
+    <p class="copyright">
+        © 2026 SkyHome. Todos los derechos reservados.
+    </p>
+
+</footer>
+
+
+<script src="/js/otro.html"></script>
+
+</body>
+</html>

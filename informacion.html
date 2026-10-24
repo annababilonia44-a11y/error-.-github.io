@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disponibilidad de Apartamentos | SkyHome</title>
+    <link rel="stylesheet" href="/css/sky home.css">
+    
+    <style>
+        /* --- FILTROS DE DISPONIBILIDAD --- */
+        .filtros-contenedor {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+
+        .btn-filtro {
+            padding: 8px 18px;
+            border-radius: 20px;
+            border: 1px solid #0066cc;
+            background: #fff;
+            color: #0066cc;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .btn-filtro.activo, .btn-filtro:hover {
+            background-color: #0066cc;
+            color: #fff;
+        }
+
+        /* --- INSIGNIAS DE ESTADO (BADGES) --- */
+        .badge-estado {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .badge-disponible {
+            background-color: #e6f4ea;
+            color: #137333;
+            border: 1px solid #ceead6;
+        }
+
+        .badge-ocupado {
+            background-color: #fce8e6;
+            color: #c5221f;
+            border: 1px solid #fad2cf;
+        }
+
+        .grid-caracteristicas {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px;
+            margin: 12px 0;
+            font-size: 0.85rem;
+            color: #444;
+        }
+
+        .precio-tag {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #0066cc;
+            margin-top: 5px;
+        }
+
+        .acciones-card {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        /* --- BOTONES Y ACCIONES --- */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            padding: 10px 16px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.25s ease;
+            border: none;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .boton-inicio {
+            background-color: #0066cc;
+            color: #ffffff;
+            margin-bottom: 15px;
+        }
+
+        .boton-primario {
+            background-color: #0066cc;
+            color: #ffffff;
+        }
+
+        .boton-secundario {
+            background-color: #ffffff;
+            color: #0066cc;
+            border: 1px solid #0066cc;
+        }
+
+        .btn-deshabilitado {
+            background-color: #e0e0e0;
+            color: #888888;
+            cursor: not-allowed;
+            box-shadow: none;
+        }
+
+        .btn-deshabilitado:hover {
+            transform: none;
+            box-shadow: none;
+        }
+
+        .info-detallada {
+            display: none;
+            background: #f9f9f9;
+            padding: 12px;
+            border-radius: 4px;
+            margin-top: 10px;
+            font-size: 0.85rem;
+            border-left: 3px solid #0066cc;
+        }
+
+        .info-detallada.activa {
+            display: block;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.85);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-contenido {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            max-width: 750px;
+            width: 90%;
+            position: relative;
+            text-align: center;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .cerrar-modal {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 26px;
+            font-weight: bold;
+            cursor: pointer;
+            color: #333;
+        }
+
+        .galeria-visor {
+            width: 100%;
+            height: 380px;
+            object-fit: cover;
+            border-radius: 6px;
+            margin-bottom: 10px;
+        }
+
+        .galeria-controles {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .galeria-thumbs {
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 12px;
+        }
+
+        .galeria-thumbs img {
+            width: 60px;
+            height: 45px;
+            object-fit: cover;
+            border-radius: 4px;
+            cursor: pointer;
+            opacity: 0.6;
+            border: 2px solid transparent;
+        }
+
+        .galeria-thumbs img.activa {
+            opacity: 1;
+            border-color: #0066cc;
+        }
+    </style>
+</head>
+
+<body>
+
+<header class="navbar">
+    <a href="/js/SKYHOME.html" class="logo">
+        Sky<span>Home</span>
+    </a>
+
+    <nav>
+        <a href="/js/SKYHOME.html">← Volver a Inicio</a>
+
+
+
+    </nav>
+</header>
+
+<main class="seccion">
+    <div class="contenedor">
+
+        <div class="titulo">
+        
+            <h1>Catálogo de Apartamentos</h1>
+        
+        </div>
+
+        <!-- BARRA DE FILTROS POR DISPONIBILIDAD -->
+        <div class="filtros-contenedor">
+            <button class="btn-filtro" onclick="filtrarEstado('disponibles', this)">🟢 Disponibles</button>
+            <button class="btn-filtro" onclick="filtrarEstado('ocupados', this)">🔴 Ocupados</button>
+        </div>
+
+        <!-- SECCIÓN FAMILIAR -->
+        <section id="familiar" class="categoria">
+    
+            <div class="apartamentos-grid" id="grid-familiar"></div>
+        </section>
+
+        <!-- SECCIÓN DOS PERSONAS -->
+        <section id="parejas" class="categoria">
+            
+            <div class="apartamentos-grid" id="grid-parejas"></div>
+        </section>
+
+        <!-- SECCIÓN APARTAESTUDIOS -->
+        <section id="apartaestudios" class="categoria">
+    
+            <div class="apartamentos-grid" id="grid-apartaestudios"></div>
+        </section>
+
+    </div>
+</main>
+
+<!-- MODAL GALERÍA -->
+<div id="modalGaleria" class="modal">
+    <div class="modal-contenido">
+        <span class="cerrar-modal" onclick="cerrarGaleria()">&times;</span>
+        <h3 id="modalTitulo">Galería de Fotos</h3>
+        <img id="imagenVisor" src="" alt="Vista previa" class="galeria-visor">
+        
+        <div class="galeria-controles">
+            <button class="btn boton-secundario" onclick="cambiarImagen(-1)">❮ Anterior</button>
+            <span id="contadorImagen">1 de 4</span>
+            <button class="btn boton-secundario" onclick="cambiarImagen(1)">Siguiente ❯</button>
+        </div>
+
+        <div id="contenedorThumbs" class="galeria-thumbs"></div>
+    </div>
+</div>
+
+<footer>
+
+</footer>
+
+<script>
+    // BASE DE DATOS LOCAL (INCLUYE PROPIEDAD "disponible: true / false")
+    const apartamentosData = [
+        // FAMILIARES
+        {
+            id: "fam-1",
+            categoria: "familiar",
+            tipo: "FAMILIAR",
+            nombre: "SkyHome Premium",
+            disponible: true,
+            descripcion: "Amplio apartamento ideal para familias numerosas con excelente vista exterior.",
+            area: "98 m²",
+            habitaciones: 3,
+            banos: 2,
+            parqueadero: "2 Cubiertos",
+            administracion: "$320.000 COP",
+            precio: "$450.000.000 COP",
+            imagenes: ["/js/imagenes/apartamento1.png", "/js/imagenes/apartamento2.jpg"],
+            detallesExtra: "Piso 12, balcón panorámico, cocina tipo isla y estudio."
+        },
+        {
+            id: "fam-2",
+            categoria: "familiar",
+            tipo: "FAMILIAR",
+            nombre: "SkyHome Luxury",
+            disponible: false,
+            descripcion: "Elegante y espacioso, diseñado con acabados de alta gama y domótica integrada.",
+            area: "115 m²",
+            habitaciones: 4,
+            banos: 3,
+            parqueadero: "2 Cubiertos + Cuarto útil",
+            administracion: "$410.000 COP",
+            precio: "$580.000.000 COP",
+            imagenes: ["/js/imagenes/apartamento2.jpg", "/js/imagenes/apartamento1.png"],
+            detallesExtra: "Piso 18, aire acondicionado central y vestier principal."
+        },
+        {
+            id: "fam-3",
+            categoria: "familiar",
+            tipo: "FAMILIAR",
+            nombre: "SkyHome Confort",
+            disponible: true,
+            descripcion: "Distribución clásica, ambiente tranquilo e iluminación natural.",
+            area: "85 m²",
+            habitaciones: 3,
+            banos: 2,
+            parqueadero: "1 Cubierto",
+            administracion: "$270.000 COP",
+            precio: "$390.000.000 COP",
+            imagenes: ["/js/imagenes/apartamento1.png", "/js/imagenes/apartamento2.jpg"],
+            detallesExtra: "Piso 5, vista a áreas verdes y calentador a gas."
+        },
+
+        // DOS PERSONAS
+        {
+            id: "dob-1",
+            categoria: "parejas",
+            tipo: "DOS PERSONAS",
+            nombre: "SkyHome Urban",
+            disponible: false,
+            descripcion: "Diseño industrial con amplios ventanales y ubicación estratégica.",
+            area: "58 m²",
+            habitaciones: 2,
+            banos: 1,
+            parqueadero: "1 Cubierto",
+            administracion: "$210.000 COP",
+            precio: "$280.000.000 COP",
+            imagenes: ["/js/imagenes/apartamento2.jpg", "/js/imagenes/apartamento1.png"],
+            detallesExtra: "Piso 8, cocina abierta, barra americana y balcón."
+        },
+        {
+            id: "dob-2",
+            categoria: "parejas",
+            tipo: "DOS PERSONAS",
+            nombre: "SkyHome Light",
+            disponible: true,
+            descripcion: "Espacio optimizado con alta entrada de luz natural.",
+            area: "52 m²",
+            habitaciones: 1,
+            banos: 1,
+            parqueadero: "1 Descubierto",
+            administracion: "$180.000 COP",
+            precio: "$245.000.000 COP",
+            imagenes: ["/js/imagenes/apartamento1.png", "/js/imagenes/apartamento2.jpg"],
+            detallesExtra: "Piso 4, zona de ropas independiente y closet amplio."
+        },
+
+        // APARTAESTUDIOS
+        {
+            id: "est-1",
+            categoria: "apartaestudios",
+            tipo: "APARTAESTUDIO",
+            nombre: "SkyHome Studio Pro",
+            disponible: true,
+            descripcion: "Un solo ambiente completamente optimizado.",
+            area: "35 m²",
+            habitaciones: 1,
+            banos: 1,
+            parqueadero: "Moto / Bicicleta",
+            administracion: "$130.000 COP",
+            precio: "$175.000.000 COP",
+            imagenes: ["/js/imagenes/apartamento1.png", "/js/imagenes/apartamento2.jpg"],
+            detallesExtra: "Piso 6, incluye escritorio modular y cocina integral."
+        },
+        {
+            id: "est-2",
+            categoria: "apartaestudios",
+            tipo: "APARTAESTUDIO",
+            nombre: "SkyHome Studio Easy",
+            disponible: false,
+            descripcion: "Distribución funcional, listo para habitar.",
+            area: "38 m²",
+            habitaciones: 1,
+            banos: 1,
+            parqueadero: "1 Común",
+            administracion: "$145.000 COP",
+            precio: "$190.000.000 COP",
+            imagenes: ["/js/imagenes/apartamento2.jpg", "/js/imagenes/apartamento1.png"],
+            detallesExtra: "Piso 3, ventanal piso a techo e iluminación LED."
+        }
+    ];
+
+    let filtroActual = 'todos';
+
+    function cargarApartamentos() {
+        // Limpiar contenido previo
+        document.getElementById('grid-familiar').innerHTML = '';
+        document.getElementById('grid-parejas').innerHTML = '';
+        document.getElementById('grid-apartaestudios').innerHTML = '';
+
+        apartamentosData.forEach(apto => {
+            // Aplicar Filtro de Disponibilidad
+            if (filtroActual === 'disponibles' && !apto.disponible) return;
+            if (filtroActual === 'ocupados' && apto.disponible) return;
+
+            const card = document.createElement('article');
+            card.className = 'apartamento-card';
+            
+            // Estado badge
+            const badgeHTML = apto.disponible 
+                ? `<span class="badge-estado badge-disponible">🟢 Disponible</span>`
+                : `<span class="badge-estado badge-ocupado">🔴 Ocupado / Reservado</span>`;
+
+            // Botón de acción según disponibilidad
+            const botonContacto = apto.disponible
+                ? `<a href="contacto.html?apto=${apto.id}" class="btn boton-primario">📩 Solicitar información</a>`
+                : `<button class="btn btn-deshabilitado" disabled>🚫 No Disponible</button>`;
+
+            card.innerHTML = `
+                <img src="${apto.imagenes[0]}" alt="${apto.nombre}">
+                <div class="apartamento-info">
+                    ${badgeHTML}
+                    <span class="tipo">${apto.tipo}</span>
+                    <h3>${apto.nombre}</h3>
+                    <p>${apto.descripcion}</p>
+                    
+                    <div class="grid-caracteristicas">
+                        <span>📐 Área: ${apto.area}</span>
+                        <span>🛏️ Hab: ${apto.habitaciones}</span>
+                        <span>🚿 Baños: ${apto.banos}</span>
+                        <span>🚗 Garaje: ${apto.parqueadero}</span>
+                    </div>
+
+                    <div class="precio-tag">${apto.precio}</div>
+
+                    <div class="acciones-card">
+                        ${botonContacto}
+                        <button class="btn boton-secundario" onclick="abrirGaleria('${apto.id}')">📷 Fotos (${apto.imagenes.length})</button>
+                        <button class="btn boton-secundario" onclick="toggleDetalles('${apto.id}')">ℹ️ Más detalles</button>
+                    </div>
+
+                    <div id="info-${apto.id}" class="info-detallada">
+                        <p><strong>Administración:</strong> ${apto.administracion}</p>
+                        <p><strong>Detalles adicionales:</strong> ${apto.detallesExtra}</p>
+                    </div>
+                </div>
+            `;
+
+            const contenedor = document.getElementById(`grid-${apto.categoria}`);
+            if (contenedor) {
+                contenedor.appendChild(card);
+            }
+        });
+    }
+
+    function filtrarEstado(estado, elemento) {
+        filtroActual = estado;
+        document.querySelectorAll('.btn-filtro').forEach(b => b.classList.remove('activo'));
+        elemento.classList.add('activo');
+        cargarApartamentos();
+    }
+
+    function toggleDetalles(id) {
+        const elemento = document.getElementById(`info-${id}`);
+        elemento.classList.toggle('activa');
+    }
+
+    /* GALERÍA MODAL */
+    let galeriaActual = [];
+    let indiceActual = 0;
+
+    function abrirGaleria(id) {
+        const apto = apartamentosData.find(a => a.id === id);
+        if (apto && apto.imagenes.length > 0) {
+            galeriaActual = apto.imagenes;
+            indiceActual = 0;
+            document.getElementById('modalTitulo').innerText = apto.nombre;
+            crearThumbnails();
+            actualizarVisor();
+            document.getElementById('modalGaleria').style.display = 'flex';
+        }
+    }
+
+    function cerrarGaleria() {
+        document.getElementById('modalGaleria').style.display = 'none';
+    }
+
+    function cambiarImagen(direccion) {
+        indiceActual += direccion;
+        if (indiceActual < 0) indiceActual = galeriaActual.length - 1;
+        else if (indiceActual >= galeriaActual.length) indiceActual = 0;
+        actualizarVisor();
+    }
+
+    function crearThumbnails() {
+        const contenedor = document.getElementById('contenedorThumbs');
+        contenedor.innerHTML = '';
+        galeriaActual.forEach((src, idx) => {
+            const img = document.createElement('img');
+            img.src = src;
+            img.onclick = () => { indiceActual = idx; actualizarVisor(); };
+            contenedor.appendChild(img);
+        });
+    }
+
+    function actualizarVisor() {
+        document.getElementById('imagenVisor').src = galeriaActual[indiceActual];
+        document.getElementById('contadorImagen').innerText = `${indiceActual + 1} de ${galeriaActual.length}`;
+        const thumbs = document.querySelectorAll('.galeria-thumbs img');
+        thumbs.forEach((t, i) => t.classList.toggle('activa', i === indiceActual));
+    }
+
+    document.addEventListener('DOMContentLoaded', cargarApartamentos);
+</script>
+
+<script src="/js/java.scrip.html"></script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,1247 @@
+/* =========================================
+   APARTAMENTOS
+========================================= */
+
+const apartamentosData = [
+
+    {
+        id: "fam-1",
+        tipo: "familiar",
+        nombre: "Apartamento Familiar Premium",
+        ubicacion: "Medellín, Antioquia",
+        descripcion: "Apartamento amplio, moderno y cómodo, ideal para una familia.",
+        area: "95 m²",
+        habitaciones: 3,
+        banos: 2,
+        parqueadero: "1 parqueadero",
+        administracion: "Incluida",
+        precio: 1450000,
+
+        fotos: [
+            {
+                nombre: "Sala",
+                src: "imagenes/apartamentos/fam-1/sala.jpg"
+            },
+            {
+                nombre: "Cocina",
+                src: "imagenes/apartamentos/fam-1/cocina.jpg"
+            },
+            {
+                nombre: "Habitación principal",
+                src: "imagenes/apartamentos/fam-1/habitacion-principal.jpg"
+            },
+            {
+                nombre: "Habitación 2",
+                src: "imagenes/apartamentos/fam-1/habitacion-2.jpg"
+            },
+            {
+                nombre: "Habitación 3",
+                src: "imagenes/apartamentos/fam-1/habitacion-3.jpg"
+            },
+            {
+                nombre: "Baño",
+                src: "imagenes/apartamentos/fam-1/bano.jpg"
+            },
+            {
+                nombre: "Balcón",
+                src: "imagenes/apartamentos/fam-1/balcon.jpg"
+            },
+            {
+                nombre: "Zona de ropas",
+                src: "imagenes/apartamentos/fam-1/zona-ropas.jpg"
+            },
+            {
+                nombre: "Piscina",
+                src: "imagenes/apartamentos/fam-1/piscina.jpg"
+            },
+            {
+                nombre: "Parqueadero",
+                src: "imagenes/apartamentos/fam-1/parqueadero.jpg"
+            }
+        ]
+    },
+
+
+    {
+        id: "fam-2",
+        tipo: "familiar",
+        nombre: "Apartamento Familiar Moderno",
+        ubicacion: "Medellín, Antioquia",
+        descripcion: "Apartamento moderno con espacios amplios para toda la familia.",
+        area: "88 m²",
+        habitaciones: 3,
+        banos: 2,
+        parqueadero: "1 parqueadero",
+        administracion: "Incluida",
+        precio: 1350000,
+
+        fotos: [
+            {
+                nombre: "Sala",
+                src: "imagenes/apartamentos/fam-2/sala.jpg"
+            },
+            {
+                nombre: "Cocina",
+                src: "imagenes/apartamentos/fam-2/cocina.jpg"
+            },
+            {
+                nombre: "Habitación principal",
+                src: "imagenes/apartamentos/fam-2/habitacion-principal.jpg"
+            },
+            {
+                nombre: "Habitación 2",
+                src: "imagenes/apartamentos/fam-2/habitacion-2.jpg"
+            },
+            {
+                nombre: "Habitación 3",
+                src: "imagenes/apartamentos/fam-2/habitacion-3.jpg"
+            },
+            {
+                nombre: "Baño",
+                src: "imagenes/apartamentos/fam-2/bano.jpg"
+            },
+            {
+                nombre: "Balcón",
+                src: "imagenes/apartamentos/fam-2/balcon.jpg"
+            },
+            {
+                nombre: "Parqueadero",
+                src: "imagenes/apartamentos/fam-2/parqueadero.jpg"
+            }
+        ]
+    },
+
+
+    {
+        id: "fam-3",
+        tipo: "familiar",
+        nombre: "Apartamento Familiar Confort",
+        ubicacion: "Medellín, Antioquia",
+        descripcion: "Espacio tranquilo y confortable para vivir en familia.",
+        area: "100 m²",
+        habitaciones: 4,
+        banos: 2,
+        parqueadero: "2 parqueaderos",
+        administracion: "Incluida",
+        precio: 1200000,
+
+        fotos: [
+            {
+                nombre: "Sala",
+                src: "imagenes/apartamentos/fam-3/sala.jpg"
+            },
+            {
+                nombre: "Comedor",
+                src: "imagenes/apartamentos/fam-3/comedor.jpg"
+            },
+            {
+                nombre: "Cocina",
+                src: "imagenes/apartamentos/fam-3/cocina.jpg"
+            },
+            {
+                nombre: "Habitación principal",
+                src: "imagenes/apartamentos/fam-3/habitacion-principal.jpg"
+            },
+            {
+                nombre: "Habitación 2",
+                src: "imagenes/apartamentos/fam-3/habitacion-2.jpg"
+            },
+            {
+                nombre: "Habitación 3",
+                src: "imagenes/apartamentos/fam-3/habitacion-3.jpg"
+            },
+            {
+                nombre: "Habitación 4",
+                src: "imagenes/apartamentos/fam-3/habitacion-4.jpg"
+            },
+            {
+                nombre: "Baño",
+                src: "imagenes/apartamentos/fam-3/bano.jpg"
+            },
+            {
+                nombre: "Balcón",
+                src: "imagenes/apartamentos/fam-3/balcon.jpg"
+            },
+            {
+                nombre: "Parqueadero",
+                src: "imagenes/apartamentos/fam-3/parqueadero.jpg"
+            }
+        ]
+    },
+
+
+    {
+        id: "par-1",
+        tipo: "parejas",
+        nombre: "Apartamento para Pareja",
+        ubicacion: "Medellín, Antioquia",
+        descripcion: "Apartamento acogedor y moderno para dos personas.",
+        area: "60 m²",
+        habitaciones: 2,
+        banos: 1,
+        parqueadero: "1 parqueadero",
+        administracion: "Incluida",
+        precio: 950000,
+
+        fotos: [
+            {
+                nombre: "Sala",
+                src: "imagenes/apartamentos/par-1/sala.jpg"
+            },
+            {
+                nombre: "Cocina",
+                src: "imagenes/apartamentos/par-1/cocina.jpg"
+            },
+            {
+                nombre: "Habitación principal",
+                src: "imagenes/apartamentos/par-1/habitacion-principal.jpg"
+            },
+            {
+                nombre: "Habitación 2",
+                src: "imagenes/apartamentos/par-1/habitacion-2.jpg"
+            },
+            {
+                nombre: "Baño",
+                src: "imagenes/apartamentos/par-1/bano.jpg"
+            },
+            {
+                nombre: "Balcón",
+                src: "imagenes/apartamentos/par-1/balcon.jpg"
+            },
+            {
+                nombre: "Parqueadero",
+                src: "imagenes/apartamentos/par-1/parqueadero.jpg"
+            }
+        ]
+    },
+
+
+    {
+        id: "par-2",
+        tipo: "parejas",
+        nombre: "Apartamento Moderno para Dos",
+        ubicacion: "Medellín, Antioquia",
+        descripcion: "Diseñado para parejas que buscan comodidad y privacidad.",
+        area: "55 m²",
+        habitaciones: 2,
+        banos: 1,
+        parqueadero: "1 parqueadero",
+        administracion: "Incluida",
+        precio: 850000,
+
+        fotos: [
+            {
+                nombre: "Sala",
+                src: "imagenes/apartamentos/par-2/sala.jpg"
+            },
+            {
+                nombre: "Cocina",
+                src: "imagenes/apartamentos/par-2/cocina.jpg"
+            },
+            {
+                nombre: "Habitación",
+                src: "imagenes/apartamentos/par-2/habitacion.jpg"
+            },
+            {
+                nombre: "Baño",
+                src: "imagenes/apartamentos/par-2/bano.jpg"
+            },
+            {
+                nombre: "Balcón",
+                src: "imagenes/apartamentos/par-2/balcon.jpg"
+            },
+            {
+                nombre: "Zona de ropas",
+                src: "imagenes/apartamentos/par-2/zona-ropas.jpg"
+            }
+        ]
+    },
+
+
+    {
+        id: "par-3",
+        tipo: "parejas",
+        nombre: "Apartamento Acogedor",
+        ubicacion: "Medellín, Antioquia",
+        descripcion: "Espacio pequeño, moderno y funcional.",
+        area: "50 m²",
+        habitaciones: 1,
+        banos: 1,
+        parqueadero: "No incluido",
+        administracion: "Incluida",
+        precio: 720000,
+
+        fotos: [
+            {
+                nombre: "Sala",
+                src: "imagenes/apartamentos/par-3/sala.jpg"
+            },
+            {
+                nombre: "Cocina",
+                src: "imagenes/apartamentos/par-3/cocina.jpg"
+            },
+            {
+                nombre: "Habitación",
+                src: "imagenes/apartamentos/par-3/habitacion.jpg"
+            },
+            {
+                nombre: "Baño",
+                src: "imagenes/apartamentos/par-3/bano.jpg"
+            }
+        ]
+    },
+
+
+    {
+        id: "est-1",
+        tipo: "apartaestudio",
+        nombre: "Apartaestudio Premium",
+        ubicacion: "Medellín, Antioquia",
+        descripcion: "Apartaestudio moderno y práctico para una persona.",
+        area: "35 m²",
+        habitaciones: 1,
+        banos: 1,
+        parqueadero: "1 parqueadero",
+        administracion: "Incluida",
+        precio: 750000,
+
+        fotos: [
+            {
+                nombre: "Sala",
+                src: "imagenes/apartamentos/est-1/sala.jpg"
+            },
+            {
+                nombre: "Cocina",
+                src: "imagenes/apartamentos/est-1/cocina.jpg"
+            },
+            {
+                nombre: "Habitación",
+                src: "imagenes/apartamentos/est-1/habitacion.jpg"
+            },
+            {
+                nombre: "Baño",
+                src: "imagenes/apartamentos/est-1/bano.jpg"
+            },
+            {
+                nombre: "Zona de ropas",
+                src: "imagenes/apartamentos/est-1/zona-ropas.jpg"
+            },
+            {
+                nombre: "Parqueadero",
+                src: "imagenes/apartamentos/est-1/parqueadero.jpg"
+            }
+        ]
+    },
+
+
+    {
+        id: "est-2",
+        tipo: "apartaestudio",
+        nombre: "Apartaestudio Central",
+        ubicacion: "Medellín, Antioquia",
+        descripcion: "Ubicación cómoda y espacio funcional.",
+        area: "32 m²",
+        habitaciones: 1,
+        banos: 1,
+        parqueadero: "No incluido",
+        administracion: "Incluida",
+        precio: 680000,
+
+        fotos: [
+            {
+                nombre: "Sala",
+                src: "imagenes/apartamentos/est-2/sala.jpg"
+            },
+            {
+                nombre: "Cocina",
+                src: "imagenes/apartamentos/est-2/cocina.jpg"
+            },
+            {
+                nombre: "Habitación",
+                src: "imagenes/apartamentos/est-2/habitacion.jpg"
+            },
+            {
+                nombre: "Baño",
+                src: "imagenes/apartamentos/est-2/bano.jpg"
+            }
+        ]
+    },
+
+
+    {
+        id: "est-3",
+        tipo: "apartaestudio",
+        nombre: "Apartaestudio Ejecutivo",
+        ubicacion: "Medellín, Antioquia",
+        descripcion: "Diseño moderno y espacios aprovechados de manera inteligente.",
+        area: "40 m²",
+        habitaciones: 1,
+        banos: 1,
+        parqueadero: "1 parqueadero",
+        administracion: "Incluida",
+        precio: 1100000,
+
+        fotos: [
+            {
+                nombre: "Sala",
+                src: "imagenes/apartamentos/est-3/sala.jpg"
+            },
+            {
+                nombre: "Cocina",
+                src: "imagenes/apartamentos/est-3/cocina.jpg"
+            },
+            {
+                nombre: "Habitación",
+                src: "imagenes/apartamentos/est-3/habitacion.jpg"
+            },
+            {
+                nombre: "Baño",
+                src: "imagenes/apartamentos/est-3/bano.jpg"
+            },
+            {
+                nombre: "Home Office",
+                src: "imagenes/apartamentos/est-3/home-office.jpg"
+            },
+            {
+                nombre: "Parqueadero",
+                src: "imagenes/apartamentos/est-3/parqueadero.jpg"
+            }
+        ]
+    }
+
+];
+
+
+/* =========================================
+   VARIABLES
+========================================= */
+
+let apartamentosMostrados = [...apartamentosData];
+
+let apartamentoActual = null;
+
+let indiceFoto = 0;
+
+
+
+/* =========================================
+   FORMATO DEL PRECIO
+========================================= */
+
+function formatoPrecio(precio) {
+
+    return new Intl.NumberFormat("es-CO", {
+
+        style: "currency",
+
+        currency: "COP",
+
+        maximumFractionDigits: 0
+
+    }).format(precio);
+
+}
+
+
+
+/* =========================================
+   MOSTRAR APARTAMENTOS
+========================================= */
+
+function mostrarApartamentos(lista = apartamentosMostrados) {
+
+    const familiar =
+        document.getElementById("grid-familiar");
+
+    const parejas =
+        document.getElementById("grid-parejas");
+
+    const estudios =
+        document.getElementById("grid-apartaestudios");
+
+
+    familiar.innerHTML = "";
+
+    parejas.innerHTML = "";
+
+    estudios.innerHTML = "";
+
+
+    lista.forEach(apartamento => {
+
+        const tarjeta =
+            crearTarjeta(apartamento);
+
+
+        if (apartamento.tipo === "familiar") {
+
+            familiar.innerHTML += tarjeta;
+
+        }
+
+
+        if (apartamento.tipo === "parejas") {
+
+            parejas.innerHTML += tarjeta;
+
+        }
+
+
+        if (apartamento.tipo === "apartaestudio") {
+
+            estudios.innerHTML += tarjeta;
+
+        }
+
+    });
+
+
+    actualizarFavoritos();
+
+}
+
+
+
+/* =========================================
+   CREAR TARJETA
+========================================= */
+
+function crearTarjeta(apartamento) {
+
+    const foto =
+        apartamento.fotos[0].src;
+
+
+    return `
+
+        <article class="apartamento-card">
+
+            <div
+                class="foto-card"
+                onclick="abrirGaleria('${apartamento.id}')"
+            >
+
+                <img
+                    src="${foto}"
+                    alt="${apartamento.nombre}"
+                    onerror="this.src='imagenes/sin-imagen.jpg'"
+                >
+
+
+                <button
+                    class="favorito"
+                    id="fav-${apartamento.id}"
+                    onclick="
+                        event.stopPropagation();
+                        cambiarFavorito('${apartamento.id}')
+                    "
+                >
+                    ♡
+                </button>
+
+
+                <span class="etiqueta-card">
+                    📷 ${apartamento.fotos.length} fotos
+                </span>
+
+            </div>
+
+
+            <div class="card-info">
+
+                <h3>
+                    ${apartamento.nombre}
+                </h3>
+
+
+                <p class="ubicacion">
+                    📍 ${apartamento.ubicacion}
+                </p>
+
+
+                <div class="caracteristicas">
+
+                    <span class="caracteristica">
+                        🛏️ ${apartamento.habitaciones} hab.
+                    </span>
+
+                    <span class="caracteristica">
+                        🚿 ${apartamento.banos} baños
+                    </span>
+
+                    <span class="caracteristica">
+                        📐 ${apartamento.area}
+                    </span>
+
+                    <span class="caracteristica">
+                        🚗 ${apartamento.parqueadero}
+                    </span>
+
+                </div>
+
+
+                <div class="precio">
+
+                    ${formatoPrecio(apartamento.precio)}
+
+                    <small>
+                        / mes
+                    </small>
+
+                </div>
+
+
+                <div class="botones-card">
+
+                    <button
+                        class="btn btn-fotos"
+                        onclick="
+                            abrirGaleria('${apartamento.id}')
+                        "
+                    >
+                        📷 Ver fotos
+                    </button>
+
+
+                    <button
+                        class="btn btn-detalles"
+                        onclick="
+                            abrirDetalles('${apartamento.id}')
+                        "
+                    >
+                        Ver detalles
+                    </button>
+
+                </div>
+
+            </div>
+
+        </article>
+
+    `;
+
+}
+
+
+
+/* =========================================
+   ABRIR GALERÍA
+========================================= */
+
+function abrirGaleria(id) {
+
+    apartamentoActual =
+        apartamentosData.find(
+            apartamento => apartamento.id === id
+        );
+
+
+    if (!apartamentoActual) return;
+
+
+    indiceFoto = 0;
+
+
+    document
+        .getElementById("modalGaleria")
+        .classList.add("mostrar");
+
+
+    mostrarFoto();
+
+}
+
+
+
+/* =========================================
+   MOSTRAR FOTO
+========================================= */
+
+function mostrarFoto() {
+
+    const foto =
+        apartamentoActual.fotos[indiceFoto];
+
+
+    document
+        .getElementById("imagenPrincipal")
+        .src = foto.src;
+
+
+    document
+        .getElementById("nombreFoto")
+        .textContent = foto.nombre;
+
+
+    const miniaturas =
+        document.getElementById("miniaturas");
+
+
+    miniaturas.innerHTML = "";
+
+
+    apartamentoActual.fotos.forEach(
+        (foto, index) => {
+
+            miniaturas.innerHTML += `
+
+                <img
+                    src="${foto.src}"
+                    alt="${foto.nombre}"
+                    title="${foto.nombre}"
+                
+                >
+
+            `;
+
+        }
+    );
+
+}
+
+
+
+/* =========================================
+   SELECCIONAR FOTO
+========================================= */
+
+function seleccionarFoto(index) {
+
+    indiceFoto = index;
+
+    mostrarFoto();
+
+}
+
+
+
+/* =========================================
+   SIGUIENTE FOTO
+========================================= */
+
+function fotoSiguiente() {
+
+    indiceFoto++;
+
+
+    if (
+        indiceFoto >=
+        apartamentoActual.fotos.length
+    ) {
+
+        indiceFoto = 0;
+
+    }
+
+
+    mostrarFoto();
+
+}
+
+
+
+/* =========================================
+   FOTO ANTERIOR
+========================================= */
+
+function fotoAnterior() {
+
+    indiceFoto--;
+
+
+    if (indiceFoto < 0) {
+
+        indiceFoto =
+            apartamentoActual.fotos.length - 1;
+
+    }
+
+
+    mostrarFoto();
+
+}
+
+
+
+/* =========================================
+   CERRAR GALERÍA
+========================================= */
+
+function cerrarGaleria() {
+
+    document
+        .getElementById("modalGaleria")
+        .classList.remove("mostrar");
+
+}
+
+
+
+/* =========================================
+   DETALLES
+========================================= */
+
+function abrirDetalles(id) {
+
+    const apartamento =
+        apartamentosData.find(
+            apartamento => apartamento.id === id
+        );
+
+
+    if (!apartamento) return;
+
+
+    const contenido =
+        document.getElementById(
+            "contenidoDetalles"
+        );
+
+
+    contenido.innerHTML = `
+
+        <img
+            class="detalle-imagen"
+            src="${apartamento.fotos[0].src}"
+            alt="${apartamento.nombre}"
+        >
+
+
+        <h2>
+            ${apartamento.nombre}
+        </h2>
+
+
+        <p class="ubicacion">
+            📍 ${apartamento.ubicacion}
+        </p>
+
+
+        <p>
+            ${apartamento.descripcion}
+        </p>
+
+
+        <div class="detalles-lista">
+
+            <div class="detalle-item">
+
+                <strong>
+                    Precio
+                </strong>
+
+                ${formatoPrecio(apartamento.precio)}
+                / mes
+
+            </div>
+
+
+            <div class="detalle-item">
+
+                <strong>
+                    Área
+                </strong>
+
+                ${apartamento.area}
+
+            </div>
+
+
+            <div class="detalle-item">
+
+                <strong>
+                    Habitaciones
+                </strong>
+
+                ${apartamento.habitaciones}
+
+            </div>
+
+
+            <div class="detalle-item">
+
+                <strong>
+                    Baños
+                </strong>
+
+                ${apartamento.banos}
+
+            </div>
+
+
+            <div class="detalle-item">
+
+                <strong>
+                    Parqueadero
+                </strong>
+
+                ${apartamento.parqueadero}
+
+            </div>
+
+
+            <div class="detalle-item">
+
+                <strong>
+                    Administración
+                </strong>
+
+                ${apartamento.administracion}
+
+            </div>
+
+        </div>
+
+
+        <br>
+
+
+        <button
+            class="btn btn-fotos"
+            onclick="
+                cerrarDetalles();
+                abrirGaleria('${apartamento.id}');
+            "
+        >
+            📷 Ver todas las fotos
+        </button>
+
+    `;
+
+
+    document
+        .getElementById("modalDetalles")
+        .classList.add("mostrar");
+
+}
+
+
+
+/* =========================================
+   CERRAR DETALLES
+========================================= */
+
+function cerrarDetalles() {
+
+    document
+        .getElementById("modalDetalles")
+        .classList.remove("mostrar");
+
+}
+
+
+
+/* =========================================
+   FAVORITOS
+========================================= */
+
+function cambiarFavorito(id) {
+
+    let favoritos =
+        JSON.parse(
+            localStorage.getItem(
+                "skyhomeFavoritos"
+            )
+        ) || [];
+
+
+    if (favoritos.includes(id)) {
+
+        favoritos =
+            favoritos.filter(
+                favorito => favorito !== id
+            );
+
+    } else {
+
+        favoritos.push(id);
+
+    }
+
+
+    localStorage.setItem(
+        "skyhomeFavoritos",
+        JSON.stringify(favoritos)
+    );
+
+
+    actualizarFavoritos();
+
+}
+
+
+
+/* =========================================
+   ACTUALIZAR FAVORITOS
+========================================= */
+
+function actualizarFavoritos() {
+
+    const favoritos =
+        JSON.parse(
+            localStorage.getItem(
+                "skyhomeFavoritos"
+            )
+        ) || [];
+
+
+    apartamentosData.forEach(apartamento => {
+
+        const boton =
+            document.getElementById(
+                `fav-${apartamento.id}`
+            );
+
+
+        if (!boton) return;
+
+
+        if (favoritos.includes(apartamento.id)) {
+
+            boton.textContent = "♥";
+
+            boton.classList.add("activo");
+
+        } else {
+
+            boton.textContent = "♡";
+
+            boton.classList.remove("activo");
+
+        }
+
+    });
+
+}
+
+
+
+/* =========================================
+   FILTRAR
+========================================= */
+
+function filtrarApartamentos() {
+
+    const tipo =
+        document.getElementById(
+            "filtroTipo"
+        ).value;
+
+
+    const habitaciones =
+        document.getElementById(
+            "filtroHabitaciones"
+        ).value;
+
+
+    apartamentosMostrados =
+        apartamentosData.filter(apartamento => {
+
+            const coincideTipo =
+                tipo === "todos" ||
+                apartamento.tipo === tipo;
+
+
+            const coincideHabitaciones =
+                habitaciones === "todos" ||
+                apartamento.habitaciones ===
+                Number(habitaciones);
+
+
+            return (
+                coincideTipo &&
+                coincideHabitaciones
+            );
+
+        });
+
+
+    mostrarApartamentos(
+        apartamentosMostrados
+    );
+
+}
+
+
+
+/* =========================================
+   BUSCAR
+========================================= */
+
+function buscarApartamentos() {
+
+    const texto =
+        document
+            .getElementById("buscador")
+            .value
+            .toLowerCase()
+            .trim();
+
+
+    apartamentosMostrados =
+        apartamentosData.filter(apartamento => {
+
+            return (
+
+                apartamento.nombre
+                    .toLowerCase()
+                    .includes(texto)
+
+                ||
+
+                apartamento.ubicacion
+                    .toLowerCase()
+                    .includes(texto)
+
+                ||
+
+                apartamento.descripcion
+                    .toLowerCase()
+                    .includes(texto)
+
+            );
+
+        });
+
+
+    mostrarApartamentos(
+        apartamentosMostrados
+    );
+
+}
+
+
+
+/* =========================================
+   ORDENAR
+========================================= */
+
+function ordenarApartamentos() {
+
+    const orden =
+        document.getElementById(
+            "ordenar"
+        ).value;
+
+
+    if (orden === "menor") {
+
+        apartamentosMostrados.sort(
+            (a, b) =>
+                a.precio - b.precio
+        );
+
+    }
+
+
+    if (orden === "mayor") {
+
+        apartamentosMostrados.sort(
+            (a, b) =>
+                b.precio - a.precio
+        );
+
+    }
+
+
+    mostrarApartamentos(
+        apartamentosMostrados
+    );
+
+}
+
+
+
+/* =========================================
+   CERRAR MODALES
+========================================= */
+
+window.addEventListener(
+    "click",
+    function(event) {
+
+        const galeria =
+            document.getElementById(
+                "modalGaleria"
+            );
+
+
+        const detalles =
+            document.getElementById(
+                "modalDetalles"
+            );
+
+
+        if (event.target === galeria) {
+
+            cerrarGaleria();
+
+        }
+
+
+        if (event.target === detalles) {
+
+            cerrarDetalles();
+
+        }
+
+    }
+);
+
+
+
+/* =========================================
+   TECLADO
+========================================= */
+
+document.addEventListener(
+    "keydown",
+    function(event) {
+
+        const galeria =
+            document.getElementById(
+                "modalGaleria"
+            );
+
+
+        if (
+            !galeria.classList.contains(
+                "mostrar"
+            )
+        ) {
+            return;
+        }
+
+
+        if (event.key === "ArrowRight") {
+
+            fotoSiguiente();
+
+        }
+
+
+        if (event.key === "ArrowLeft") {
+
+            fotoAnterior();
+
+        }
+
+
+        if (event.key === "Escape") {
+
+            cerrarGaleria();
+
+        }
+
+    }
+);
+
+
+
+/* =========================================
+   INICIAR PÁGINA
+========================================= */
+
+mostrarApartamentos();
+
+actualizarFavoritos();

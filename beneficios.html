@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beneficios | SkyHome</title>
+
+    <!-- CONEXIÓN CON CSS -->
+    <link rel="stylesheet" href="/css/sky home.css">
+
+    <style>
+        .beneficios-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+            padding: 20px 0;
+        }
+
+        .beneficio-card {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 25px 20px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #f0f0f0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .beneficio-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0, 102, 204, 0.12);
+        }
+
+        .icono-grande {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        .beneficio-card h2 {
+            font-size: 1.25rem;
+            color: #1a1a1a;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        /* Botón Lindo para Ver Información */
+        .btn-info {
+            background: linear-gradient(135deg, #0066cc, #004899);
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+            box-shadow: 0 4px 10px rgba(0, 102, 204, 0.25);
+            transition: all 0.3s ease;
+            width: 100%;
+            margin-top: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .btn-info:hover {
+            background: linear-gradient(135deg, #0052a3, #003366);
+            box-shadow: 0 6px 15px rgba(0, 102, 204, 0.35);
+            transform: scale(1.02);
+        }
+
+        /* Contenedor e información desplegable */
+        .info-desplegable {
+            display: none;
+            background-color: #f4f8fc;
+            border-left: 4px solid #0066cc;
+            padding: 12px 15px;
+            margin-top: 12px;
+            border-radius: 6px;
+            font-size: 0.88rem;
+            color: #333333;
+            text-align: left;
+            line-height: 1.4;
+            width: 100%;
+            box-sizing: border-box;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .info-desplegable.activa {
+            display: block;
+        }
+
+        /* Animación suave al desplegar */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Sección y Botón Volver a Inicio */
+        .contenedor-volver {
+            text-align: center;
+            margin-top: 40px;
+            padding-bottom: 20px;
+        }
+
+        .btn-volver-inicio {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #ffffff;
+            color: #0066cc;
+            border: 2px solid #0066cc;
+            padding: 12px 28px;
+            border-radius: 30px;
+            font-size: 1rem;
+            font-weight: 700;
+            text-decoration: none;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .btn-volver-inicio:hover {
+            background: #0066cc;
+            color: #ffffff;
+            box-shadow: 0 6px 18px rgba(0, 102, 204, 0.3);
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+
+<body>
+
+<header class="navbar">
+    <a href="/js/SKYHOME.html" class="logo">
+        Sky<span>Home</span>
+    </a>
+
+    <nav>
+        <a href="/js/beneficios.html" class="activo">Beneficios</a>
+    
+    </nav>
+</header>
+
+<main>
+
+    <section class="titulo-pagina">
+    
+        <h1>Beneficios Exclusivos</h1>
+    
+    </section>
+
+    <section class="seccion">
+        <div class="contenedor">
+            <div class="beneficios-grid">
+
+                <!-- TARJETA 1 -->
+                <article class="beneficio-card">
+                    <div class="icono-grande">🔐</div>
+                    <h2>Seguridad 24/7</h2>
+                    <button class="btn-info" onclick="toggleInfo('ben-1', this)">
+                        <span>Ver información</span> 
+                    </button>
+                    <div id="ben-1" class="info-desplegable">
+                        Tranquilidad garantizada con vigilancia privada las 24 horas, circuito cerrado de televisión (CCTV) y control de acceso digital para residentes e invitados.
+                    </div>
+                </article>
+
+                <!-- TARJETA 2 -->
+                <article class="beneficio-card">
+                    <div class="icono-grande">🏊</div>
+                    <h2>Piscina Climatizada</h2>
+                    <button class="btn-info" onclick="toggleInfo('ben-2', this)">
+                        <span>Ver información</span> 
+                    </button>
+                    <div id="ben-2" class="info-desplegable">
+                        Espacios de esparcimiento e hidroterapia para adultos y niños, equipados con áreas de solárium para disfrutar durante todo el año.
+                    </div>
+                </article>
+
+                <!-- TARJETA 3 -->
+                <article class="beneficio-card">
+                    <div class="icono-grande">🚗</div>
+                    <h2>Parqueaderos</h2>
+                    <button class="btn-info" onclick="toggleInfo('ben-3', this)">
+                        <span>Ver información</span> 
+                    </button>
+                    <div id="ben-3" class="info-desplegable">
+                        Bahías independientes, cubiertas y seguras para residentes, además de celdas exclusivas destinadas para la atención de visitantes.
+                    </div>
+                </article>
+
+                <!-- TARJETA 4 -->
+                <article class="beneficio-card">
+                    <div class="icono-grande">🌳</div>
+                    <h2>Zonas Verdes</h2>
+                    <button class="btn-info" onclick="toggleInfo('ben-4', this)">
+                        <span>Ver información</span> 
+                    </button>
+                    <div id="ben-4" class="info-desplegable">
+                        Senderos ecológicos, jardines ornamentales y amplias áreas al aire libre idóneas para el esparcimiento, la meditación y tus mascotas.
+                    </div>
+                </article>
+
+                <!-- TARJETA 5 -->
+                <article class="beneficio-card">
+                    <div class="icono-grande">🏋️</div>
+                    <h2>Gimnasio Equipado</h2>
+                    <button class="btn-info" onclick="toggleInfo('ben-5', this)">
+                        <span>Ver información</span> 
+                    </button>
+                    <div id="ben-5" class="info-desplegable">
+                        Zona de entrenamiento cardiovascular y musculación completamente dotada para mantener tu rutina de ejercicio sin salir de la unidad.
+                    </div>
+                </article>
+
+                <!-- TARJETA 6 -->
+                <article class="beneficio-card">
+                    <div class="icono-grande">🛗</div>
+                    <h2>Ascensores</h2>
+                    <button class="btn-info" onclick="toggleInfo('ben-6', this)">
+                        <span>Ver información</span> 
+                    </button>
+                    <div id="ben-6" class="info-desplegable">
+                        Equipos electromecánicos de alta velocidad y tecnología de punta que garantizan una movilidad vertical rápida, cómoda y segura.
+                    </div>
+                </article>
+
+            </div>
+
+            <!-- BOTÓN APARTE: VOLVER A INICIO -->
+            <div class="contenedor-volver">
+                <a href="/js/SKYHOME.html" class="btn-volver-inicio">
+                     Volver a Inicio
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+</main>
+
+<footer>
+    
+</footer>
+
+<script>
+    function toggleInfo(id, btn) {
+        const elemento = document.getElementById(id);
+        const estaActivo = elemento.classList.contains('activa');
+        const spanTexto = btn.querySelector('span');
+
+        // Cerrar los demás desplegables
+        document.querySelectorAll('.info-desplegable').forEach(item => {
+            item.classList.remove('activa');
+        });
+        document.querySelectorAll('.btn-info span').forEach(span => {
+            span.innerText = 'Ver información';
+        });
+
+        // Alternar el estado actual
+        if (!estaActivo) {
+            elemento.classList.add('activa');
+            spanTexto.innerText = 'Ocultar información';
+        }
+    }
+</script>
+
+<script src="/js/script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,164 @@
+/* =====================================================
+   DETALLE DINÁMICO DE APARTAMENTOS
+===================================================== */
+
+// Base de datos de apartamentos
+const listaApartamentos = {
+    "fam-1": {
+        titulo: "SkyHome Premium",
+        tipo: "FAMILIAR",
+        descripcion: "Apartamento amplio y moderno, ideal para familias que buscan comodidad, iluminación natural y cercanía a zonas verdes.",
+        habitaciones: "3",
+        banos: "2",
+        area: "95 m²",
+        precio: "$2.200.000 / mes",
+        imagen: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=900&q=80"
+    },
+    "fam-2": {
+        titulo: "SkyHome Luxury",
+        tipo: "FAMILIAR",
+        descripcion: "Espacio elegante y de gran tamaño con acabados de lujo, parqueadero privado y vista panorámica a la ciudad.",
+        habitaciones: "4",
+        banos: "3",
+        area: "120 m²",
+        precio: "$2.800.000 / mes",
+        imagen: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=900&q=80"
+    },
+    "fam-3": {
+        titulo: "SkyHome Confort",
+        tipo: "FAMILIAR",
+        descripcion: "Unidad residencial acojedora, cuenta con balcón, excelente distribución y zonas comunes de recreación.",
+        habitaciones: "3",
+        banos: "2",
+        area: "102 m²",
+        precio: "$2.450.000 / mes",
+        imagen: "https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=900&q=80"
+    },
+    "dob-1": {
+        titulo: "SkyHome Urban",
+        tipo: "DOS PERSONAS",
+        descripcion: "Diseño moderno y funcional cerca a estaciones de transporte público, ideal para parejas o profesionales.",
+        habitaciones: "2",
+        banos: "1",
+        area: "70 m²",
+        precio: "$1.700.000 / mes",
+        imagen: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=900&q=80"
+    },
+    "dob-2": {
+        titulo: "SkyHome Light",
+        tipo: "DOS PERSONAS",
+        descripcion: "Apartamento iluminado con cocina tipo americana y espacios optimizados para la vida urbana.",
+        habitaciones: "2",
+        banos: "1",
+        area: "62 m²",
+        precio: "$1.550.000 / mes",
+        imagen: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=900&q=80"
+    },
+    "dob-3": {
+        titulo: "SkyHome Modern",
+        tipo: "DOS PERSONAS",
+        descripcion: "Ambiente cálido y tranquilo con excelentes vistas y espacio adaptado para trabajo remoto.",
+        habitaciones: "2",
+        banos: "1",
+        area: "65 m²",
+        precio: "$1.600.000 / mes",
+        imagen: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=900&q=80"
+    },
+    "est-1": {
+        titulo: "SkyHome Studio Pro",
+        tipo: "APARTAESTUDIO",
+        descripcion: "Espacio independiente completamente equipado con acabados de alta calidad para estudiantes o trabajadores.",
+        habitaciones: "1",
+        banos: "1",
+        area: "45 m²",
+        precio: "$1.100.000 / mes",
+        imagen: "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=900&q=80"
+    },
+    "est-2": {
+        titulo: "SkyHome Studio Easy",
+        tipo: "APARTAESTUDIO",
+        descripcion: "Apartaestudio acogedor, económico y de fácil acceso a las zonas comerciales principales.",
+        habitaciones: "1",
+        banos: "1",
+        area: "40 m²",
+        precio: "$1.050.000 / mes",
+        imagen: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=900&q=80"
+    },
+    "est-3": {
+        titulo: "SkyHome Studio Style",
+        tipo: "APARTAESTUDIO",
+        descripcion: "Diseño elegante con distribución óptima de espacios, iluminación LED y balcón privado.",
+        habitaciones: "1",
+        banos: "1",
+        area: "42 m²",
+        precio: "$1.080.000 / mes",
+        imagen: "https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=900&q=80"
+    }
+};
+
+// Cargar la información al entrar a detalle.html
+document.addEventListener("DOMContentLoaded", function () {
+    const params = new URLSearchParams(window.location.search);
+    const idApto = params.get("id");
+
+    if (idApto && listaApartamentos[idApto]) {
+        const apto = listaApartamentos[idApto];
+
+        const elTitulo = document.getElementById("apto-titulo");
+        const elTipo = document.getElementById("apto-tipo");
+        const elDesc = document.getElementById("apto-descripcion");
+        const elHabs = document.getElementById("apto-habs");
+        const elBanos = document.getElementById("apto-banos");
+        const elArea = document.getElementById("apto-area");
+        const elPrecio = document.getElementById("apto-precio");
+        const elImg = document.getElementById("apto-imagen");
+
+        if (elTitulo) elTitulo.textContent = apto.titulo;
+        if (elTipo) elTipo.textContent = apto.tipo;
+        if (elDesc) elDesc.textContent = apto.descripcion;
+        if (elHabs) elHabs.textContent = apto.habitaciones;
+        if (elBanos) elBanos.textContent = apto.banos;
+        if (elArea) elArea.textContent = apto.area;
+        if (elPrecio) elPrecio.textContent = apto.precio;
+        if (elImg) {
+            elImg.src = apto.imagen;
+            elImg.alt = apto.titulo;
+        }
+    }
+    document.addEventListener("DOMContentLoaded", function () {
+    // Renderizar apartamentos en sus respectivos grids si existen en la página
+    const gridFamiliar = document.getElementById("grid-familiar");
+    const gridParejas = document.getElementById("grid-parejas");
+    const gridApartaestudios = document.getElementById("grid-apartaestudios");
+
+    for (const id in listaApartamentos) {
+        const apto = listaApartamentos[id];
+        
+        // Crear la estructura HTML de la tarjeta
+        const tarjeta = document.createElement("div");
+        tarjeta.className = "tarjeta-apartamento";
+        tarjeta.innerHTML = `
+            <img src="${apto.imagen}" alt="${apto.titulo}">
+            <div class="tarjeta-info">
+                <h3>${apto.titulo}</h3>
+                <p>${apto.descripcion.substring(0, 80)}...</p>
+                <div class="detalles-rapidos">
+                    <span>🛏️ ${apto.habitaciones} habs</span>
+                    <span>🚿 ${apto.banos} baños</span>
+                    <span>📐 ${apto.area}</span>
+                </div>
+                <p class="precio"><strong>${apto.precio}</strong></p>
+                <a href="detalle.html?id=${id}" class="btn-detalles">Ver detalles</a>
+            </div>
+        `;
+
+        // Clasificar según el tipo en el contenedor correspondiente
+        if (apto.tipo === "FAMILIAR" && gridFamiliar) {
+            gridFamiliar.appendChild(tarjeta);
+        } else if (apto.tipo === "DOS PERSONAS" && gridParejas) {
+            gridParejas.appendChild(tarjeta);
+        } else if (apto.tipo === "APARTAESTUDIO" && gridApartaestudios) {
+            gridApartaestudios.appendChild(tarjeta);
+        }
+    }
+});

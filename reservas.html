@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Reservas | SkyHome</title>
+
+    <link rel="stylesheet" href="/css/reservas.css">
+</head>
+
+<body>
+
+    <!-- =========================
+         BOTÓN DE TRES RAYAS
+    ========================== -->
+
+    <button class="menu-btn" onclick="abrirMenu()">
+        ☰
+    </button>
+
+
+    <!-- =========================
+         MENÚ DE RESERVAS
+    ========================== -->
+
+    <aside id="menuReservas" class="menu-reservas">
+
+        <button class="cerrar-menu" onclick="cerrarMenu()">
+            ×
+        </button>
+
+        <h2>Mis reservas</h2>
+
+        <p class="menu-descripcion">
+            Consulta tus reservas anteriores y administra tus próximas estancias.
+        </p>
+
+
+        <!-- RESERVA GUARDADA -->
+
+        <div id="listaReservas">
+
+            <div class="sin-reservas">
+                <span>📅</span>
+                <p>
+                    Aún no tienes reservas.
+                </p>
+            </div>
+
+        </div>
+
+    </aside>
+
+
+    <!-- FONDO DEL MENÚ -->
+
+    <div
+        id="fondoMenu"
+        class="fondo-menu"
+        onclick="cerrarMenu()">
+    </div>
+
+
+
+    <!-- =========================
+         CONTENIDO PRINCIPAL
+    ========================== -->
+
+    <main class="booking-container">
+
+
+        <!-- ENCABEZADO -->
+
+        <div class="booking-header">
+
+            <span class="icono-reserva">
+                🏠
+            </span>
+
+            <h1>
+                Haz tu reserva
+            </h1>
+
+            <p>
+                Reserva tu apartamento de forma fácil,
+                rápida y segura en SkyHome.
+            </p>
+
+        </div>
+
+
+
+        <!-- =========================
+             FORMULARIO
+        ========================== -->
+
+        <form
+            id="booking-form"
+            class="booking-form"
+        >
+
+
+            <!-- NOMBRE -->
+
+            <div class="form-group full-width">
+
+                <label for="nombre">
+                    Nombre completo
+                </label>
+
+                <input
+                    type="text"
+                    id="nombre"
+                    name="nombre"
+                    placeholder="Ej. Juan Pérez"
+                    required
+                >
+
+            </div>
+
+
+
+            <!-- CORREO -->
+
+            <div class="form-group">
+
+                <label for="email">
+                    Correo electrónico
+                </label>
+
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="correo@ejemplo.com"
+                    required
+                >
+
+            </div>
+
+
+
+            <!-- TELÉFONO -->
+
+            <div class="form-group">
+
+                <label for="telefono">
+                    Teléfono
+                </label>
+
+                <input
+                    type="tel"
+                    id="telefono"
+                    name="telefono"
+                    placeholder="+57 300 000 0000"
+                    required
+                >
+
+            </div>
+
+
+
+            <!-- APARTAMENTO -->
+
+            <div class="form-group full-width">
+
+                <label for="apartamento">
+                    Apartamento
+                </label>
+
+                <select
+                    id="apartamento"
+                    name="apartamento"
+                    required
+                >
+
+                    <option value="" disabled selected>
+                        Selecciona un apartamento
+                    </option>
+
+                    <option value="Apartamento Familiar - Laureles">
+                        Familiar · Laureles · Medellín
+                    </option>
+
+                    <option value="Apartamento Familiar - El Poblado">
+                        Familiar · El Poblado · Envigado
+                    </option>
+
+                    <option value="Apartamento Familiar - Niquía">
+                        Familiar · Niquía · Bello
+                    </option>
+
+                    <option value="Apartamento Parejas - Belén">
+                        Parejas · Belén · Medellín
+                    </option>
+
+                    <option value="Apartamento Parejas - Sabaneta">
+                        Parejas · Centro · Sabaneta
+                    </option>
+
+                    <option value="Apartaestudio - Robledo">
+                        Apartaestudio · Robledo · Medellín
+                    </option>
+
+                    <option value="Apartaestudio - Centro">
+                        Apartaestudio · Centro · Medellín
+                    </option>
+
+                </select>
+
+            </div>
+
+
+
+            <!-- FECHA DE ENTRADA -->
+
+            <div class="form-group">
+
+                <label for="fechaEntrada">
+                    Fecha de entrada
+                </label>
+
+                <input
+                    type="date"
+                    id="fechaEntrada"
+                    name="fechaEntrada"
+                    required
+                >
+
+            </div>
+
+
+
+            <!-- FECHA DE SALIDA -->
+
+            <div class="form-group">
+
+                <label for="fechaSalida">
+                    Fecha de salida
+                </label>
+
+                <input
+                    type="date"
+                    id="fechaSalida"
+                    name="fechaSalida"
+                    required
+                >
+
+            </div>
+
+
+
+            <!-- PERSONAS -->
+
+            <div class="form-group">
+
+                <label for="personas">
+                    Número de huéspedes
+                </label>
+
+                <input
+                    type="number"
+                    id="personas"
+                    name="personas"
+                    min="1"
+                    max="20"
+                    value="1"
+                    required
+                >
+
+            </div>
+
+
+
+            <!-- TIPO DE RESERVA -->
+
+            <div class="form-group">
+
+                <label for="tipoReserva">
+                    Tipo de reserva
+                </label>
+
+                <select
+                    id="tipoReserva"
+                    name="tipoReserva"
+                    required
+                >
+
+                    <option value="" disabled selected>
+                        Selecciona una opción
+                    </option>
+
+                    <option value="Estancia">
+                        Estancia
+                    </option>
+
+                    <option value="Visita">
+                        Visita
+                    </option>
+
+                </select>
+
+            </div>
+
+
+
+            <!-- NOTAS -->
+
+            <div class="form-group full-width">
+
+                <label for="notas">
+                    Solicitudes especiales
+                    <span>(opcional)</span>
+                </label>
+
+                <textarea
+                    id="notas"
+                    name="notas"
+                    rows="4"
+                    placeholder="Escribe alguna solicitud especial..."
+                ></textarea>
+
+            </div>
+
+
+
+            <!-- RESUMEN -->
+
+            <div class="resumen-reserva">
+
+                <h3>
+                    Resumen de la reserva
+                </h3>
+
+                <div class="resumen-linea">
+
+                    <span>
+                        Apartamento
+                    </span>
+
+                    <strong id="resumenApartamento">
+                        No seleccionado
+                    </strong>
+
+                </div>
+
+                <div class="resumen-linea">
+
+                    <span>
+                        Entrada
+                    </span>
+
+                    <strong id="resumenEntrada">
+                        —
+                    </strong>
+
+                </div>
+
+                <div class="resumen-linea">
+
+                    <span>
+                        Salida
+                    </span>
+
+                    <strong id="resumenSalida">
+                        —
+                    </strong>
+
+                </div>
+
+                <div class="resumen-linea">
+
+                    <span>
+                        Huéspedes
+                    </span>
+
+                    <strong id="resumenPersonas">
+                        1
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- BOTÓN -->
+
+            <button
+                type="submit"
+                class="btn-submit"
+            >
+
+                Confirmar reserva
+
+            </button>
+
+        </form>
+
+
+
+        <!-- =========================
+             CONFIRMACIÓN
+        ========================== -->
+
+        <div
+            id="confirmation-message"
+            class="confirmation-message hidden"
+        >
+
+            <div class="confirmacion-icono">
+                ✓
+            </div>
+
+            <h2>
+                ¡Reserva realizada!
+            </h2>
+
+            <p>
+                Tu solicitud fue registrada correctamente.
+            </p>
+
+            <p>
+                Puedes consultar tu reserva
+                desde el menú ☰.
+            </p>
+
+            <button
+                class="ver-reservas"
+                onclick="abrirMenu()"
+            >
+                Ver mi reserva
+            </button>
+
+        </div>
+
+
+
+        <!-- VOLVER -->
+
+        <div class="btn-volver-container">
+
+            <a
+                href="/js/SKYHOME.html"
+                class="boton-inicio"
+            >
+                ← Volver al inicio
+            </a>
+
+        </div>
+
+    </main>
+
+
+
+    <script src="/js/java.html"></script>
+
+</body>
+</html>

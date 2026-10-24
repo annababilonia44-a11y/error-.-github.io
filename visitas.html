@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Métricas de Vistas - SkyHome</title>
+  
+  <!-- Estilos separados -->
+  <link rel="stylesheet" href="/css/visitas.css">
+  
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+  <main class="dashboard-container">
+    
+    <!-- ENCABEZADO Y NAVEGACIÓN -->
+    <header class="dashboard-header">
+      <a href="/js/SKYHOME.html" class="btn-back-home">&larr; Volver al Inicio</a>
+      <h2>Estadísticas de Vistas de Apartamentos</h2>
+      <p class="dashboard-subtitle">Resumen general del interés de los usuarios en SkyHome</p>
+    </header>
+
+    <!-- TARJETAS DE RESUMEN (KPIs) -->
+    <section class="kpi-grid">
+      <div class="kpi-card">
+        <h3>Total Vistas Globales</h3>
+        <p class="kpi-value" id="total-vistas">1,245</p>
+      </div>
+      <div class="kpi-card highlight">
+        <h3>Apartamento Más Visto</h3>
+        <p class="kpi-value" id="top-apartamento">Suite 202</p>
+      </div>
+      <div class="kpi-card">
+        <h3>Promedio Vistas/Apto</h3>
+        <p class="kpi-value" id="promedio-vistas">311</p>
+      </div>
+    </section>
+
+    <!-- CONTENIDO: GRÁFICO Y TABLA -->
+    <section class="content-grid">
+      
+      <!-- Gráfico -->
+      <div class="card chart-card">
+        <h3>Visualizaciones por Apartamento</h3>
+        <div class="chart-container">
+          <canvas id="viewsChart"></canvas>
+        </div>
+      </div>
+
+      <!-- Tabla de detalles -->
+      <div class="card table-card">
+        <h3>Detalle por Apartamento</h3>
+        <div class="table-wrapper">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Apartamento</th>
+                <th>Vistas Totales</th>
+                <th>Usuarios Únicos</th>
+                <th>Estado</th>
+              </tr>
+            </thead>
+            <tbody id="tabla-vistas">
+              <tr>
+                <td>#101</td>
+                <td>Apartamento 101 - Vista Mar</td>
+                <td><strong>342</strong></td>
+                <td>210</td>
+                <td><span class="badge badge-success">Disponible</span></td>
+              </tr>
+              <tr>
+                <td>#202</td>
+                <td>Suite Deluxe 202</td>
+                <td><strong>480</strong></td>
+                <td>315</td>
+                <td><span class="badge badge-warning">Reservado</span></td>
+              </tr>
+              <tr>
+                <td>#303</td>
+                <td>Penthouse 303</td>
+                <td><strong>255</strong></td>
+                <td>180</td>
+                <td><span class="badge badge-success">Disponible</span></td>
+              </tr>
+              <tr>
+                <td>#404</td>
+                <td>Estudio Urbano 404</td>
+                <td><strong>168</strong></td>
+                <td>95</td>
+                <td><span class="badge badge-danger">Ocupado</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </section>
+  </main>
+
+  <!-- CONFIGURACIÓN DE CHART.JS -->
+  <script>
+    const ctx = document.getElementById('viewsChart').getContext('2d');
+
+    // Degradado personalizado para las barras (Azul a Rosado)
+    const gradient = ctx.createLinearGradient(0, 0, 0, 300);
+    gradient.addColorStop(0, '#FF66C4');
+    gradient.addColorStop(1, '#2A60FF');
+
+    const viewsChart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['Apto 101', 'Suite 202', 'Penthouse 303', 'Estudio 404'],
+        datasets: [{
+          label: 'Número de Vistas',
+          data: [342, 480, 255, 168],
+          backgroundColor: gradient,
+          borderRadius: 8,
+          hoverBackgroundColor: '#FF66C4'
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { display: false }
+        },
+        scales: {
+          y: { 
+            beginAtZero: true,
+            grid: { color: '#F1F5F9' }
+          },
+          x: {
+            grid: { display: false }
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>

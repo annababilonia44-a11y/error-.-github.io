@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    
+
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Inicio | SkyHome</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/css/sky home.css">
+
+</head>
+
+
+<body>
+
+<header class="navbar">
+
+    <a href="/js/inicio.html" class="logo">
+        Sky<span>Home</span>
+    </a>
+
+
+    <nav>
+
+        <a
+            href="/js/inicio.html"
+            class="activo"
+        >
+            Inicio
+        </a>
+
+        <a href="apartamentos.html">
+            Apartamentos
+        </a>
+
+        <a href="beneficios.html">
+            Beneficios
+        </a>
+
+
+        <a href="mapa.html">
+            Mapa
+        </a>
+
+        <a href="/js/informacion.html">
+            Información
+        </a>
+  <a href="/js/reservas.html">
+            reservas
+        </a>
+<a href="/js/visitas.html">
+            visitas
+        </a>
+    </nav>
+
+
+    <!-- PERFIL -->
+
+    <div class="perfil">
+
+        <label for="fotoPerfil">
+
+            <img
+                id="imagenPerfil"
+                src="/js/imagenes/melody5.webp"
+                alt="Foto de perfil"
+            >
+
+        </label>
+
+        <input
+            type="file"
+            id="fotoPerfil"
+            accept="image/*"
+            hidden
+        >
+
+    </div>
+
+</header>
+
+
+
+<main>
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+        <div class="hero-contenido">
+
+        
+            </span>
+
+
+            <h1>
+                Encuentra el hogar
+                de tus sueños
+            </h1>
+
+
+            <p>
+                Descubre apartamentos modernos,
+                cómodos y pensados para ti.
+            </p>
+
+            <a
+                href="apartamentos.html"
+                class="boton"
+            >
+            
+            </a>
+            <script src="/js/java.scrip.html"></script>
+
+        </div>
+
+    </section>
+
+
+
+
+              
